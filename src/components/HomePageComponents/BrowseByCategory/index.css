@@ -1,0 +1,10 @@
+.browse-category-card {
+  text-decoration: none !important ;
+  color: black;
+}
+
+.browse-category-card:hover {
+  box-shadow: 0.1px 0.1px 8px 0px rgba(128, 128, 128, 0.479);
+  border: none;
+  color: black;
+}

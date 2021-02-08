@@ -1,0 +1,44 @@
+.availability-toggle {
+  width: 60px;
+  cursor: pointer;
+  border-radius: 20px;
+  position: relative;
+  background-color: rgba(0, 128, 0, 0.712);
+  transition: all 0.5s;
+}
+
+.availability-toggle-inside {
+  transition: all 0.5s;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  height: 90%;
+  width: 50%;
+  border-radius: 49%;
+  z-index: 2;
+  background-color: white;
+}
+
+.availability-toggle.red {
+  background-color: rgba(255, 0, 0, 0.74);
+}
+
+.availability-toggle-inside.red {
+  position: absolute;
+  left: 29px;
+}
+
+.schedule-div {
+  position: absolute;
+}
+
+.disable-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.13);
+  cursor: not-allowed;
+}

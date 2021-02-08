@@ -1,0 +1,23 @@
+.myLink:hover {
+  color: #09dca4 !important;
+}
+.my-btn:hover {
+  color: white !important;
+}
+.my-btn:focus .my-btn:active .active.my-btn {
+  color: white !important;
+  background-color: red !important;
+}
+
+.myBrand {
+  border-right: 2px solid #09dca4;
+}
+
+.options-container > div {
+  align-items: center;
+}
+
+.options-container > div > .active {
+  display: flex;
+  align-items: center;
+}

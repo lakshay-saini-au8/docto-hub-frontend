@@ -1,0 +1,27 @@
+.tab-buttons {
+  width: fit-content;
+  cursor: pointer;
+  display: inline;
+  transition: all 0.5s;
+  text-decoration: none !important;
+  border-radius: 30px;
+  color: black;
+}
+.tab-buttons:hover {
+  color: black;
+  background-color: #dfdbdbf8;
+}
+.tab-buttons.current {
+  background-color: #20c0f3;
+  color: white;
+}
+.accept-button {
+  cursor: pointer;
+  background-color: rgba(57, 202, 57, 0.336);
+  color: rgb(19, 175, 19);
+}
+.cancel-button {
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.315);
+  color: red;
+}

@@ -1,0 +1,9 @@
+.side-bar-link {
+  color: grey;
+}
+.side-bar-link:hover {
+  color: #20c0f3;
+}
+.side-bar-link.active {
+  color: #20c0f3;
+}

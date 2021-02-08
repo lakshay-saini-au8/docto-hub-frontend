@@ -1,0 +1,47 @@
+.doctor-card * {
+  text-decoration: none !important;
+  transition: all 0.5s;
+}
+.doctor-card {
+  box-shadow: 3px 3px 10px rgba(128, 128, 128, 0.308);
+}
+.doctor-card-button {
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #01cae4;
+  color: #01cae4;
+  border-radius: 3px;
+}
+.doctor-card-button:hover,
+.doctor-card-button:focus {
+  color: white;
+  background-color: #01cae4;
+}
+.doctor-card-button.book-now {
+  background-color: #01cae4;
+  color: white;
+}
+.doctor-card-button.book-now:hover {
+  background-color: rgb(16, 151, 168);
+}
+.doctor-card-img {
+  width: 100%;
+}
+.doctor-card-title {
+  color: black;
+}
+.doctor-card-title:hover {
+  color: #09dca4;
+  border-radius: 5px;
+}
+.view-more-doctors {
+  text-decoration: none !important;
+  font-weight: 800;
+  background-color: #09dca4;
+  color: white;
+  border-radius: 8px;
+}
+.view-more-doctors:hover {
+  color: white;
+  background-color: #20be94;
+}

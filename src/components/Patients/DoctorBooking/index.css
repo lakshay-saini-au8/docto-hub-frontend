@@ -1,0 +1,28 @@
+.book-doctor-image-container {
+  width: 80px;
+  height: 80px;
+}
+.book-doctor-info-container {
+  width: 70%;
+  height: 130px;
+}
+.doctor-profile-name-link {
+  color: black;
+  text-decoration: none !important;
+}
+.form-check-label {
+  margin-left: 20px;
+  margin-top: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-check-input {
+  cursor: pointer;
+  background-color: #8882828f;
+  width: 25px;
+  height: 25px;
+}
+.image-container-booking-summary {
+  width: 40px;
+  height: 40px;
+}

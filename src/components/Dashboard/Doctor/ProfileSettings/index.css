@@ -1,0 +1,18 @@
+.file-upload {
+  display: none;
+}
+.file-upload-label {
+  margin-top: 20px;
+  width: 70%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #20c0f3;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  font-size: 12px;
+  cursor: pointer;
+}
