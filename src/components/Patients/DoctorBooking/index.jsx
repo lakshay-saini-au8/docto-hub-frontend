@@ -178,16 +178,12 @@ const BookingForm = () => {
                       errors.booking_time ? "border border-danger" : ""
                     }
                   >
-                    <option disabled>Select</option>
-                    {currentDaySlots.length === 0 ? (
-                      <option disabled className="text-danger">
-                        No Slot Avaliable
-                      </option>
-                    ) : (
-                      currentDaySlots.map((slot, index) => {
-                        return <option key={index}> {slot}</option>;
-                      })
+                    {currentDaySlots.length === 0 || (
+                      <option value="">Select</option>
                     )}
+                    {currentDaySlots.map((slot, index) => {
+                      return <option key={index}> {slot}</option>;
+                    })}
                   </Form.Control>
                   {errors.booking_time ? (
                     <>
