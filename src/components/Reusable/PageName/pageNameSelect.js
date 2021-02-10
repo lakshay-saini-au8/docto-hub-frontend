@@ -18,6 +18,8 @@ const selectPageName = (query) => {
       return "Product Page";
     case "/medicines/cart":
       return "Cart";
+    case "/medicines/checkout":
+      return "Product Checkout";
     default:
       return;
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const CartRight = ({ details }) => {
-  console.log(details);
   return (
     <>
       <Row className="my-4 font-weight-bold text-muted">
@@ -47,13 +47,15 @@ const CartRight = ({ details }) => {
         </Col>
       </Row>
       <Row className="my-2 px-3 font-weight-bold text-muted">
-        <Button
-          as={Col}
-          variant={"info"}
-          className="font-weight-bold mt-3 py-2"
-        >
-          Proceed To Checkout
-        </Button>
+        <Link to="/medicines/checkout" className=" w-100">
+          <Button
+            as={Col}
+            variant={"info"}
+            className="font-weight-bold mt-3 py-2"
+          >
+            Proceed To Checkout
+          </Button>
+        </Link>
       </Row>
     </>
   );

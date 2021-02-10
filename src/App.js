@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import DoctorBooking from "./pages/PateintSidePages/DoctorBooking";
 import MedicineDetail from "./pages/MedicineDetail";
 import Cart from "./components/Cart";
+import CartCheckout from "./pages/CartCheckout";
 const App = () => {
   return (
     <>
@@ -36,6 +37,7 @@ const App = () => {
           path="/doctor/booking/:doctorId"
           component={DoctorBooking}
         />
+        <ProtectedRoute path="/medicines/checkout/" component={CartCheckout} />
         <Route exact path="/medicines" component={MedicinePage} />
         <Route
           exact
