@@ -16,6 +16,8 @@ const selectPageName = (query) => {
       return "Doctor Booking";
     case "/medicines/detail":
       return "Product Page";
+    case "/medicines/cart":
+      return "Cart";
     default:
       return;
   }
