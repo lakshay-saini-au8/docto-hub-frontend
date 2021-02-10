@@ -21,3 +21,18 @@
   display: flex;
   align-items: center;
 }
+.cart-link-badge {
+  position: absolute;
+  z-index: 3;
+  top: -5px;
+  left: 0;
+}
+.cart-button {
+  position: relative;
+}
+@media only screen and (max-width: 1000px) {
+  .cart-link-badge {
+    top: 10px;
+    left: 96%;
+  }
+}

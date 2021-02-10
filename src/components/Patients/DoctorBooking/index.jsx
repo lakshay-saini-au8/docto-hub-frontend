@@ -29,11 +29,11 @@ const BookingForm = () => {
   const userInfo = useUserInfo();
   const onDateChange = (e) => {
     setreadableDate(getReadableDate(e.target.value));
-    console.log(e.target.value);
     setCurrentDaySlots(doctorProfile.available[1][getDay(e.target.value)]);
     setInputs((inputs) => {
       return {
         ...inputs,
+        booking_time: null,
         booking_date: minDate,
       };
     });
@@ -157,11 +157,22 @@ const BookingForm = () => {
                 </Form.Group>
 
                 <Form.Group as={Col} md={6} controlId="formGridtimeslots">
-                  <Form.Label>Time Slots Avaliable</Form.Label>
+                  {currentDaySlots.length === 0 ? (
+                    <Form.Label className="text-danger">
+                      No Slots Available!!
+                    </Form.Label>
+                  ) : (
+                    <Form.Label>Time Slots Avaliable</Form.Label>
+                  )}
                   <Form.Control
                     as="select"
                     name="booking_time"
-                    defaultValue="Select"
+                    defaultValue={
+                      currentDaySlots.length === 0
+                        ? "Select Other Date"
+                        : "Select"
+                    }
+                    disabled={currentDaySlots.length == 0}
                     onChange={handleInputChange}
                     className={
                       errors.booking_time ? "border border-danger" : ""
@@ -169,7 +180,9 @@ const BookingForm = () => {
                   >
                     <option disabled>Select</option>
                     {currentDaySlots.length === 0 ? (
-                      <option disabled>Not Slot Avaliable</option>
+                      <option disabled className="text-danger">
+                        No Slot Avaliable
+                      </option>
                     ) : (
                       currentDaySlots.map((slot, index) => {
                         return <option key={index}> {slot}</option>;
@@ -409,7 +422,7 @@ const BookingForm = () => {
                   <ListGroupItem className="border-0 d-flex justify-content-between align-items-center">
                     <p className="font-weight-bold m-0">Time</p>
                     <p className="text-muted m-0" style={{ fontWeight: "500" }}>
-                      Some time
+                      {inputs.booking_time || "No Time Selected"}
                     </p>
                   </ListGroupItem>
                   <ListGroupItem className="border-0 d-flex justify-content-between align-items-center">

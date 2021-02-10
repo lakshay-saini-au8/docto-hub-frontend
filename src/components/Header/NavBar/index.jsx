@@ -5,7 +5,7 @@ import { logout as logoutAction } from "../../../redux/actions/authActions";
 
 import "./index.css";
 // BootStrap Imports
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import { Container, Navbar, Nav, Button, Badge } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import DropDown from "../../Reusable/Dropdown";
 // import { useUserInfo } from "../../../customHooks";
@@ -86,8 +86,18 @@ const NavBar = () => {
               activeStyle={{ borderBottom: "2px solid #09dca4" }}
               to="/medicines/cart"
             >
-              <Nav.Link className="text-dark myLink  d-lg-none">
-                <i className="fas fa-shopping-cart mr-2"></i>Cart
+              <Nav.Link className="text-dark myLink  d-lg-none cart-button">
+                <i
+                  className="fas fa-shopping-cart mr-2"
+                  style={{ transform: "scaleX(-1)" }}
+                ></i>
+                Cart
+                <Badge
+                  variant="info"
+                  className="rounded-circle cart-link-badge"
+                >
+                  {cartItems.length}
+                </Badge>
               </Nav.Link>
             </LinkContainer>
           </Nav>
@@ -98,9 +108,20 @@ const NavBar = () => {
                 activeStyle={{ borderBottom: "2px solid #09dca4" }}
                 to="/medicines/cart"
               >
-                <Nav.Link className="text-dark myLink d-none d-lg-block mt-2">
-                  <i className="fas fa-shopping-cart mr-2"></i>Cart
-                  {cartItems.length}
+                <Nav.Link className="text-dark myLink d-none d-lg-block mt-2 cart-button">
+                  <>
+                    <i
+                      className="fas fa-shopping-cart mr-2"
+                      style={{ transform: "scaleX(-1)" }}
+                    ></i>
+                    Cart
+                    <Badge
+                      variant="info"
+                      className="rounded-circle cart-link-badge"
+                    >
+                      {cartItems.length}
+                    </Badge>
+                  </>
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer exact={true} to="/login">
@@ -122,9 +143,20 @@ const NavBar = () => {
                 activeStyle={{ borderBottom: "2px solid #09dca4" }}
                 to="/medicines/cart"
               >
-                <Nav.Link className="text-dark myLink d-none d-lg-block mt-2">
-                  <i className="fas fa-shopping-cart mr-2"></i>Cart
-                  {cartItems.length}
+                <Nav.Link className="text-dark myLink d-none d-lg-block mt-2 cart-button">
+                  <>
+                    <i
+                      className="fas fa-shopping-cart mr-1"
+                      style={{ transform: "scaleX(-1)" }}
+                    ></i>
+                    Cart
+                    <Badge
+                      variant="info"
+                      className="rounded-circle cart-link-badge"
+                    >
+                      {cartItems.length}
+                    </Badge>
+                  </>
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer
