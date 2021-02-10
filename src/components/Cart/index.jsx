@@ -1,6 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../../redux/actions/cartAction";
 const Cart = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const totalQty = cartItems.reduce((acc, item) => acc + Number(item.qty), 0);
@@ -18,6 +20,11 @@ const Cart = () => {
     Number(cart.shippingPrice) +
     Number(cart.taxPrice)
   ).toFixed(2);
+
+  const removeItem = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
   return (
     <div>
       Cart item {cartItems.length}
@@ -31,6 +38,13 @@ const Cart = () => {
       tax{cart.taxPrice}
       <br />
       total{cart.totalPrice}
+      <br />
+      {cartItems.map((item) => (
+        <>
+          <button onClick={() => removeItem(item.product)}>Remove</button>
+          <br />
+        </>
+      ))}
     </div>
   );
 };
