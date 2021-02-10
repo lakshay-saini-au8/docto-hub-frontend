@@ -13,12 +13,15 @@ import AllDoctor from "./pages/AllDoctor";
 import MedicinePage from "./pages/MedicinePage";
 import Footer from "./components/Footer";
 import DoctorBooking from "./pages/PateintSidePages/DoctorBooking";
+import MedicineDetail from "./pages/MedicineDetail";
 const App = () => {
   return (
     <>
       <Header />
       <ScrollToTop />
       <Switch>
+        <Route exact path="/" component={HomePage} />
+
         <Route path="/login" component={LoginPage} />
         <Route path="/register" component={LoginPage} />
         <Route path="/doctors" component={AllDoctor} />
@@ -28,12 +31,16 @@ const App = () => {
           path="/doctor/profile/:doctorId"
           component={SingleDoctor}
         />
-        <Route exact path="/medicines" component={MedicinePage} />
         <ProtectedRoute
           path="/doctor/booking/:doctorId"
           component={DoctorBooking}
         />
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/medicines" component={MedicinePage} />
+        <Route
+          exact
+          path="/medicines/detail/:productId"
+          component={MedicineDetail}
+        />
       </Switch>
       <Footer />
     </>

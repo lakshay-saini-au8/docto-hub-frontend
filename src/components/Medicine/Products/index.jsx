@@ -5,8 +5,8 @@ import ProductCard from "../../Reusable/ProductCard";
 import "./index.css";
 const Products = ({ loading, error, products }) => {
   return (
-    <Col md={9} className=" rounded ">
-      <Row className="m-3 bg-white  p-3">
+    <Col lg={9} className=" rounded ">
+      <Row className="mt-3 p-3 bg-white">
         {loading ? (
           <div style={{ width: "100%", height: "50vh" }}>
             <Loader />
@@ -15,7 +15,9 @@ const Products = ({ loading, error, products }) => {
           <ErrorMessage error={error} />
         ) : (
           products &&
-          products.map((product) => <ProductCard product={product} md={4} />)
+          products.map((product) => (
+            <ProductCard product={product} md={4} lg={3} xl={3} />
+          ))
         )}
       </Row>
     </Col>

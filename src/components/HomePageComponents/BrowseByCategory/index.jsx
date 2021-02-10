@@ -31,7 +31,7 @@ const BrowseByCategory = () => {
   return (
     <Container>
       <Row>
-        <h2 className="w-100 text-center">Browse By Category</h2>
+        <h2 className="w-100 text-center m-3">Browse By Category</h2>
       </Row>
       {error && <ErrorMessage error={error} />}
       <Row className="mt-5">

@@ -7,7 +7,7 @@ const Footer = () => {
   const loginUser = useSelector((state) => state.loginUser);
   const { userInfo } = loginUser;
   return (
-    <Container fluid className="m-0 mt-4 p-4 bg-secondary text-white">
+    <Container fluid className="m-0  p-4 bg-secondary text-white">
       <Row>
         <Col lg={3} className="d-flex flex-column p-3 ">
           <h3 className="footer-brand font-weight-bolder pr-1">

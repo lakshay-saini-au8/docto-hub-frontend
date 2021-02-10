@@ -225,7 +225,7 @@ export const updateBookingStatus = async (token, status, bookingId) => {
   }
 };
 
-// get all the doctors
+// get all the medicine
 
 export const getAllProducts = async (query = {}) => {
   const config = {
@@ -235,12 +235,58 @@ export const getAllProducts = async (query = {}) => {
   };
   try {
     let URL = `${BASE_URL}/product`;
-    const { specialization } = query;
-    if (specialization) {
-      URL = `${BASE_URL}/product?specialization=${specialization}`;
+    const { priceRange, category } = query;
+    if (priceRange && category) {
+      URL = `${BASE_URL}/product/?category=${category}&range=${priceRange}`;
+    } else if (priceRange) {
+      URL = `${BASE_URL}/product/?range=${priceRange}`;
+    } else if (category) {
+      URL = `${BASE_URL}/product/?category=${category}`;
     }
     const { data } = await axios.get(`${URL}`, config);
     return { data };
+  } catch (error) {
+    return {
+      message:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    };
+  }
+};
+
+// get all the medicine
+
+export const getProductById = async (productId) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    let URL = `${BASE_URL}/product/${productId}`;
+    const { data } = await axios.get(`${URL}`, config);
+    return { product: data };
+  } catch (error) {
+    return {
+      message:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    };
+  }
+};
+export const addNewReview = async (token, productId, reviewData) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    let URL = `${BASE_URL}/product/${productId}/reviews`;
+    const { data } = await axios.put(`${URL}`, reviewData, config);
+    return { success: data.message };
   } catch (error) {
     return {
       message:

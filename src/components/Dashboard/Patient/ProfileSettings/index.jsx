@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Form, Button, Alert } from "react-bootstrap";
+import { Col, Form, Button, Alert, Image, Badge } from "react-bootstrap";
 import { updateCurrentProfile } from "../../../../utils/api";
 import useFormHandler from "../../../Forms/Formhandler/useFormHandler";
 import { useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ const ProfileSettingsP = ({ currentProfile, token, setCurrentProfile }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const [proImg, setProImg] = useState(null);
+  const [currentImg, setCurrentImg] = useState(null);
 
   // form submit handler
   const submit = async () => {
@@ -52,8 +53,14 @@ const ProfileSettingsP = ({ currentProfile, token, setCurrentProfile }) => {
     setLoading(false);
   };
 
-  const imageHandler = (e) => {
+  const hangleImageChange = (e) => {
     setProImg(e.target.files);
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      setCurrentImg({ name: e.target.files[0].name, url: reader.result });
+    };
+    console.log(e.target.files[0]);
   };
   // using custom form handler
   const {
@@ -80,22 +87,47 @@ const ProfileSettingsP = ({ currentProfile, token, setCurrentProfile }) => {
       )}
       <Form onSubmit={updateProfile}>
         <Form.Row>
-          <Form.Group>
-            <label htmlFor="file-upload" className="file-upload-label m-1">
-              <i className="fas fa-upload mr-2"></i> New Preview
-            </label>
-            <Form.Text className="">
-              <small>Allowed JPG, GIF or PNG. Max size of 2MB</small>
-            </Form.Text>
-
-            <input
-              id="file-upload"
-              type="file"
-              className="file-upload"
-              name="profileImg"
-              onChange={imageHandler}
-            />
-          </Form.Group>
+          {currentImg ? (
+            <div className="mx-2 mb-2">
+              <Image
+                src={currentImg.url}
+                style={{ width: "80px", height: "80px" }}
+              ></Image>
+              <Form.Text className="text-success font-weight-bolder">
+                {currentImg.name}
+              </Form.Text>
+              <Badge
+                variant="pill"
+                className="bg-danger text-white"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setProImg(null);
+                  setCurrentImg(null);
+                }}
+              >
+                <i className="fas fa-trash mr-2"></i>
+                Remove
+              </Badge>
+            </div>
+          ) : (
+            <>
+              <Form.Group>
+                <label htmlFor="file-upload" className="file-upload-label">
+                  <i className="fas fa-upload mr-2"></i> Upload Photo
+                </label>
+                <Form.Text className="">
+                  <small>Allowed JPG, GIF or PNG. Max size of 2MB</small>
+                </Form.Text>
+                <input
+                  id="file-upload"
+                  type="file"
+                  className="file-upload"
+                  name="profileImg"
+                  onChange={hangleImageChange}
+                />
+              </Form.Group>
+            </>
+          )}
         </Form.Row>
 
         <Form.Row>

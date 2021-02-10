@@ -14,6 +14,8 @@ const selectPageName = (query) => {
       return "Schedule Timings";
     case "/doctor/booking":
       return "Doctor Booking";
+    case "/medicines/detail":
+      return "Product Page";
     default:
       return;
   }

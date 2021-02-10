@@ -16,6 +16,8 @@ const NavBar = () => {
   const history = useHistory();
   const loginUser = useSelector((state) => state.loginUser);
   const { userInfo } = loginUser;
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
   const ref = useRef();
   const handleToggle = (e) => {
     setToggleState(!toggleState);
@@ -42,6 +44,7 @@ const NavBar = () => {
             DoctoHub
           </Navbar.Brand>
         </LinkContainer>
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           className="mytoggle border border-primary  "
@@ -78,9 +81,28 @@ const NavBar = () => {
                 <i className="fas fa-medkit mr-2"></i>Medicines
               </Nav.Link>
             </LinkContainer>
+            <LinkContainer
+              exact={true}
+              activeStyle={{ borderBottom: "2px solid #09dca4" }}
+              to="/medicines/cart"
+            >
+              <Nav.Link className="text-dark myLink  d-lg-none">
+                <i className="fas fa-shopping-cart mr-2"></i>Cart
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
           {!userInfo ? (
             <Nav>
+              <LinkContainer
+                exact={true}
+                activeStyle={{ borderBottom: "2px solid #09dca4" }}
+                to="/medicines/cart"
+              >
+                <Nav.Link className="text-dark myLink d-none d-lg-block mt-2">
+                  <i className="fas fa-shopping-cart mr-2"></i>Cart
+                  {cartItems.length}
+                </Nav.Link>
+              </LinkContainer>
               <LinkContainer exact={true} to="/login">
                 <Nav.Link>
                   <Button
@@ -95,6 +117,16 @@ const NavBar = () => {
             </Nav>
           ) : (
             <Nav>
+              <LinkContainer
+                exact={true}
+                activeStyle={{ borderBottom: "2px solid #09dca4" }}
+                to="/medicines/cart"
+              >
+                <Nav.Link className="text-dark myLink d-none d-lg-block mt-2">
+                  <i className="fas fa-shopping-cart mr-2"></i>Cart
+                  {cartItems.length}
+                </Nav.Link>
+              </LinkContainer>
               <LinkContainer
                 exact={true}
                 activeStyle={{ borderBottom: "2px solid #09dca4" }}
@@ -113,6 +145,7 @@ const NavBar = () => {
                   <i className="fas fa-user-cog mr-2"></i>Profile Settings
                 </Nav.Link>
               </LinkContainer>
+
               <DropDown userDetails={""} />
               <Nav.Link
                 className="d-lg-none text-dark m-0 p-0 border d-flex align-items-center px-3"

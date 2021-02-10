@@ -1,31 +1,53 @@
 import React from "react";
 import { Col, Row, Image, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const ProductCard = ({ product, md, lg }) => {
+import { useDispatch } from "react-redux";
+import Rating from "../Rating";
+import "./index.css";
+import { addToCart } from "../../../redux/actions/cartAction";
+const ProductCard = ({ product, md, lg, xl }) => {
+  const dispatch = useDispatch();
+  const handleCart = () => {
+    dispatch(addToCart(product._id, 1));
+  };
   return (
     <>
-      <Col sm={6} md={md} lg={lg} className="mb-2 p-3" key={product._id}>
-        <Card className="p-3 product-card">
-          <Link to="/doctor-profile/id">
-            <Image src={product.image} className="product-card-img"></Image>
-            <Card.Title className="product-card-title mt-3">
+      <Col
+        xs={12}
+        sm={6}
+        md={md}
+        lg={lg}
+        className="p-0  rounded"
+        key={product._id}
+      >
+        <Card className="p-3 m-2 product-card">
+          <Link
+            to={`/medicines/detail/${product._id}`}
+            style={{ textDecoration: "none" }}
+            className="text-dark"
+          >
+            <Image
+              src={product.image}
+              className="product-card-img"
+              style={{ width: "100%", height: "230px" }}
+            ></Image>
+            <Card.Title className="mb-4 product-card-title m-2 text-capitalize text-truncate">
               {product.name}
             </Card.Title>
           </Link>
 
-          <small className="text-muted my-1">
-            <i className="fas fa-money-bill mr-1"></i>
-            {product.price}
-          </small>
-
-          <Row className="px-2  align-self-start">
-            <Col
-              as={Link}
-              to="/doctor-book/id"
-              className="product-card-button py-1  m-1 book-now d-flex justify-content-center align-items-center"
-            >
-              Add To Cart
-            </Col>
+          <Row className="px-2 m-0">
+            <Rating
+              value={product.rating}
+              text={"(" + product.numReviews.toString() + ")Reviews"}
+            />
+          </Row>
+          <Row className="px-2 m-0 d-flex justify-content-between align-items-center">
+            <h3 className="m-0">₹ {product.price}.00 </h3>
+            <i
+              className="fas fa-shopping-cart p-3 rounded-circle add-cart-button"
+              onClick={handleCart}
+            ></i>
           </Row>
         </Card>
       </Col>

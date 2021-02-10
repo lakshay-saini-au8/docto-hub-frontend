@@ -34,7 +34,11 @@ const MedicinePage = () => {
         style={{ backgroundColor: "#dddddd40" }}
       >
         <Row>
-          <Filter />
+          <Filter
+            setProducts={setProducts}
+            setLoading={setLoading}
+            setError={setError}
+          />
           <Products products={products} loading={loading} error={error} />
         </Row>
       </Container>

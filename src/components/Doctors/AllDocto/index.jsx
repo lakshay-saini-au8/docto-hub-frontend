@@ -5,7 +5,7 @@ import Loader from "../../Reusable/Loader";
 
 const AllDocto = ({ loading, error, doctors }) => {
   return (
-    <Col md={12} lg={9} className="rounded ">
+    <Col md={12} lg={9} className="mt-2 mt-lg-3 rounded ">
       <Row className=" m-sm-0 bg-white  p-3">
         {loading ? (
           <div style={{ width: "100%", height: "50vh" }}>
