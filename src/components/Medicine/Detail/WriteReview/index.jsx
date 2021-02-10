@@ -81,6 +81,7 @@ const WriteReview = ({ setProduct, productId }) => {
                 style={{ cursor: "pointer" }}
               />
             </span>
+
             <span className="rating-comp mb-5">
               <Rating value={review.rating} />
               <span className="font-weight-bold">

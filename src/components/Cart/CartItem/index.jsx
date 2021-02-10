@@ -15,7 +15,7 @@ const CartItem = ({ item, removeItem }) => {
 
   return (
     <>
-      <Row className="border rounded m-2 p-2 disable-select">
+      <Row className="border rounded m-2 p-2 disable-select text-muted">
         <Col
           sm={12}
           md={4}
@@ -43,6 +43,7 @@ const CartItem = ({ item, removeItem }) => {
               as="select"
               type="select"
               className="d-inline"
+              variant="info"
               value={item.qty}
               default={item.qty}
               name={item.product}
