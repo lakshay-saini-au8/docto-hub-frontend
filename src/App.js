@@ -14,6 +14,7 @@ import MedicinePage from "./pages/MedicinePage";
 import Footer from "./components/Footer";
 import DoctorBooking from "./pages/PateintSidePages/DoctorBooking";
 import MedicineDetail from "./pages/MedicineDetail";
+import Cart from "./components/Cart";
 const App = () => {
   return (
     <>
@@ -41,6 +42,7 @@ const App = () => {
           path="/medicines/detail/:productId"
           component={MedicineDetail}
         />
+        <Route exact path="/medicines/cart" component={Cart} />
       </Switch>
       <Footer />
     </>
