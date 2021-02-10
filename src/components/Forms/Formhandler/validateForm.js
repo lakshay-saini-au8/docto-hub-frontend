@@ -122,6 +122,49 @@ export const changePasswordValidation = (inputs) => {
   return errors;
 };
 
+export const placeOrderValidation = (inputs) => {
+  const errors = {};
+
+  if (!inputs.firstname || !inputs.firstname.trim()) {
+    errors.firstname = "First Name Required";
+  }
+
+  if (!inputs.lastname || !inputs.lastname.trim()) {
+    errors.lastname = "Last Name Required";
+  }
+
+  if (!inputs.email) {
+    errors.email = "Email Required!!";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(inputs.email)) {
+    errors.email = "Invalid Format of email address";
+  }
+  if (!inputs.mobile) {
+    errors.mobile = "Phone Number Required";
+  } else if (inputs.mobile.length < 6) {
+    errors.mobile = "Minimum 6 digits";
+  } else if (!validatePhoneNumber(inputs.mobile)) {
+    errors.mobile = "Phone Number should have only Digits";
+  }
+
+  if (!inputs.paymentMethod) {
+    errors.paymentMethod = "Select A Payment Method";
+  }
+
+  if (!inputs.postalCode) {
+    errors.postalCode = "Postal Code is Mandatory";
+  }
+  if (!inputs.country || !inputs.country.trim()) {
+    errors.country = "Select A Country";
+  }
+  if (!inputs.address || !inputs.address.trim()) {
+    errors.address = "Please provide an Address";
+  }
+  if (!inputs.city || !inputs.city.trim()) {
+    errors.city = "Select a City";
+  }
+  return errors;
+};
+
 export const doctorBookingValidation = (inputs) => {
   const errors = {};
 

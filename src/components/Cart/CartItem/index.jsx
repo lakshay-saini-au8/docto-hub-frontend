@@ -8,7 +8,7 @@ const CartItem = ({ item, removeItem }) => {
   const quantityOptionRender = () => {
     let optionArr = [];
     for (let i = 0; i < item.countInStock; i++) {
-      optionArr.push(<option>{i + 1}</option>);
+      optionArr.push(<option key={i}>{i + 1}</option>);
     }
     return optionArr;
   };
@@ -35,7 +35,7 @@ const CartItem = ({ item, removeItem }) => {
           className="d-md-flex justify-content-between align-items-center mt-2 mt-md-0 "
         >
           <p className="m-0 font-weight-bold">
-            <span className="d-md-none">Price:</span> ₹ {item.price}
+            <span className="d-md-none">Price:</span> ₹ {item.price}.00
           </p>
           <p className="m-0">
             <Form.Label>Select Quantity</Form.Label>
@@ -45,7 +45,7 @@ const CartItem = ({ item, removeItem }) => {
               className="d-inline"
               variant="info"
               value={item.qty}
-              default={item.qty}
+              default={"item.qty"}
               name={item.product}
               onChange={(e) => {
                 dispatch(addToCart(item.product, e.target.value));
@@ -56,7 +56,7 @@ const CartItem = ({ item, removeItem }) => {
           </p>
           <p className="m-0 font-weight-bold">
             <span className="d-md-none mt-2">Total:</span> ₹
-            {item.qty * item.price}
+            {item.qty * item.price}.00
           </p>
           <Badge
             variant={"danger"}

@@ -6,7 +6,7 @@ import PageName from "../../components/Reusable/PageName";
 import selectPageName from "../../components/Reusable/PageName/pageNameSelect";
 import { getAllProducts } from "../../utils/api";
 
-const MedicinePage = () => {
+const MedicinePage = ({ match }) => {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

@@ -6,6 +6,7 @@ import {
   updateProfileValidation,
   changePasswordValidation,
   doctorBookingValidation,
+  placeOrderValidation,
 } from "./validateForm";
 const useFormHandler = (callback) => {
   const [inputs, setInputs] = useState({});
@@ -108,6 +109,21 @@ const useFormHandler = (callback) => {
     }
   };
 
+  const placeOrder = (event) => {
+    if (event) {
+      event.preventDefault();
+    }
+    const validationErrors = placeOrderValidation(inputs);
+    const noErrors = Object.keys(validationErrors).length === 0;
+    setErrors(validationErrors);
+
+    if (noErrors) {
+      callback();
+    } else {
+      console.log("Errors", errors);
+    }
+  };
+
   const handleInputChange = (event) => {
     setErrors({});
     event.persist();
@@ -131,6 +147,7 @@ const useFormHandler = (callback) => {
     changePassword,
     normalSubmit,
     bookDoctor,
+    placeOrder,
   };
 };
 
