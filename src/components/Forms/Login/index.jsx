@@ -15,7 +15,10 @@ import login1 from "../../../assets/login1.svg";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { login as loginAction } from "../../../redux/actions/authActions";
+import {
+  login as loginAction,
+  logout,
+} from "../../../redux/actions/authActions";
 
 const LoginForm = ({ location }) => {
   // to decide login or forgot password state
@@ -56,7 +59,12 @@ const LoginForm = ({ location }) => {
     if (userInfo) {
       history.push("/");
     }
-  }, [userInfo, history]);
+    return () => {
+      if (error) {
+        dispatch(logout());
+      }
+    };
+  }, [userInfo, history, error, dispatch]);
 
   return (
     <Container className="mt-5" fluid>

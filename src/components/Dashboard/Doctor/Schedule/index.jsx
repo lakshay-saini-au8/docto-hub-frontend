@@ -52,12 +52,16 @@ const ScheduleTimings = ({ currentProfile, token, setCurrentProfile }) => {
   // form submit handler
   const submit = async () => {
     inputs["available"] = [onLeave, slots];
+    delete inputs["__v"];
+    delete inputs["_id"];
+    const finalData = new FormData();
 
+    finalData.append("inputs", JSON.stringify(inputs));
     setLoading(true);
     const { data, message } = await updateCurrentProfile(
       "doctor",
       token,
-      inputs
+      finalData
     );
     if (data.user) {
       setCurrentProfile(data.user);

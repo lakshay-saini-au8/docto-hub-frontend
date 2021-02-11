@@ -115,7 +115,11 @@ const BookingForm = () => {
       doctorId
     );
     if (status === "success") {
-      history.push("/dashboard/index");
+      if (userInfo.user.role === "doctor") {
+        history.push("/dashboard/your-bookings");
+      } else {
+        history.push("/dashboard/index");
+      }
     }
     if (message) {
       setBookingError(message);

@@ -33,13 +33,15 @@ const RegisterForm = () => {
     if (success) {
       dispatch({ type: USER_REGISTER_RESET });
     }
-  }, [success, dispatch]);
+    return () => {
+      if (error) {
+        dispatch({ type: USER_REGISTER_RESET });
+      }
+    };
+  }, [success, dispatch, error]);
   useEffect(() => {
     if (userInfo) {
       history.push("/dashboard/profile");
-    }
-    if (loginError) {
-      history.push("/login");
     }
   }, [dispatch, userInfo, history, loginError]);
   useEffect(() => {

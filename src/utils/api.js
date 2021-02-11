@@ -25,20 +25,21 @@ export const getCurrentProfile = async (role, token) => {
 };
 
 export const updateCurrentProfile = async (role, token, updatedData) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  console.log(role, "On api");
   try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    console.log(updatedData);
     const { data } = await axios.put(
       `${BASE_URL}/${role}/profile/update`,
       updatedData,
       config
     );
     console.log(data);
-    console.log(role, "On api");
     return { data };
   } catch (error) {
     return {
@@ -180,7 +181,8 @@ export const createBooking = async (token, bookingData, doctorId) => {
 };
 
 // get all  booking
-export const getAllBooking = async (token) => {
+export const getAllBooking = async (token, query) => {
+  let bookData = {};
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -188,8 +190,18 @@ export const getAllBooking = async (token) => {
     },
   };
   try {
-    const { data } = await axios.get(`${BASE_URL}/booking/all/`, config);
-    return { bookings: data.bookings };
+    if (query) {
+      const { data } = await axios.get(
+        `${BASE_URL}/booking/all/?mine=${query.mine}`,
+        config
+      );
+      bookData = data.bookings;
+    } else {
+      const { data } = await axios.get(`${BASE_URL}/booking/all/`, config);
+      bookData = data.bookings;
+    }
+
+    return { bookings: bookData };
   } catch (error) {
     return {
       message:
