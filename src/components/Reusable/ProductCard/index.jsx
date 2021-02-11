@@ -44,10 +44,21 @@ const ProductCard = ({ product, md, lg, xl }) => {
           </Row>
           <Row className="px-2 m-0 d-flex justify-content-between align-items-center">
             <h3 className="m-0">₹ {product.price}.00 </h3>
-            <i
-              className="fas fa-shopping-cart p-3 rounded-circle add-cart-button"
-              onClick={handleCart}
-            ></i>
+            {product.countInStock === 0 ? (
+              <>
+                <small className="text-danger font-weight-bold">
+                  Not In Stock
+                </small>
+              </>
+            ) : (
+              <>
+                {" "}
+                <i
+                  className="fas fa-shopping-cart p-3 rounded-circle add-cart-button"
+                  onClick={handleCart}
+                ></i>
+              </>
+            )}
           </Row>
         </Card>
       </Col>

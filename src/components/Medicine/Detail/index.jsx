@@ -31,7 +31,7 @@ const Detail = ({ product, setProduct }) => {
           <Col lg={3} className="bg-white rounded">
             <Row className="my-4 p-3">
               <Col>
-                {product.quantity === 0 ? (
+                {product.countInStock === 0 ? (
                   <>
                     <Alert variant={"danger"}>Not In Stock!!</Alert>
                   </>

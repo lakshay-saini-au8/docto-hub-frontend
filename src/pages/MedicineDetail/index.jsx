@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Alert, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Detail from "../../components/Medicine/Detail";
 import CustomLoader from "../../components/Reusable/CustomLoader";
@@ -31,6 +31,13 @@ const MedicineDetail = ({ match }) => {
     <>
       <PageName pageName={selectPageName(match.path.slice(0, 17))} />
       <Container fluid className="m-0 p-0  mt-0">
+        {error ? (
+          <Alert variant="danger" className="w-100">
+            {error}
+          </Alert>
+        ) : (
+          <></>
+        )}
         {loading ? (
           <CustomLoader size={"50px"} />
         ) : (

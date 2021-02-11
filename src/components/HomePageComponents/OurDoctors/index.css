@@ -45,3 +45,11 @@
   color: white;
   background-color: #20be94;
 }
+.on-leave {
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 3px;
+  border: 1px solid rgba(235, 48, 48, 0.877);
+  color: rgba(235, 48, 48, 0.877);
+  cursor: not-allowed;
+}

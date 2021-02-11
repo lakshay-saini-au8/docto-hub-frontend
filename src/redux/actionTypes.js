@@ -1,5 +1,5 @@
-export const BASE_URL = "https://doctohubback.herokuapp.com/api/v1";
-// export const BASE_URL = "http://localhost:9990/api/v1";
+// export const BASE_URL = "https://doctohubback.herokuapp.com/api/v1";
+export const BASE_URL = "http://localhost:9990/api/v1";
 
 // user action constant
 export const USER_REGISTER_REQUEST = "USER_REGISTER_REQUEST";

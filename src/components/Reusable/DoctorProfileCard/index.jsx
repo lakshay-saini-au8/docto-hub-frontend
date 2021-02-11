@@ -68,14 +68,27 @@ const DoctorProfileCard = ({ doctor, md, lg, xl }) => {
             >
               View Profile
             </Col>
-            <Col
-              as={Link}
-              to={`/doctor/booking/${doctor._id}`}
-              className="doctor-card-button py-1 my-1  book-now d-flex justify-content-center align-items-center"
-              md={12}
-            >
-              Book Now
-            </Col>
+            {doctor.available[0].onLeave ? (
+              <>
+                <Col
+                  className="py-1 my-1 on-leave d-flex justify-content-center align-items-center"
+                  md={12}
+                >
+                  On Leave
+                </Col>
+              </>
+            ) : (
+              <>
+                <Col
+                  as={Link}
+                  to={`/doctor/booking/${doctor._id}`}
+                  className="doctor-card-button py-1 my-1  book-now d-flex justify-content-center align-items-center"
+                  md={12}
+                >
+                  Book Now
+                </Col>
+              </>
+            )}
           </Row>
         </Card>
       </Col>
