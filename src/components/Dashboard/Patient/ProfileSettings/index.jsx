@@ -60,7 +60,6 @@ const ProfileSettingsP = ({ currentProfile, token, setCurrentProfile }) => {
     reader.onload = () => {
       setCurrentImg({ name: e.target.files[0].name, url: reader.result });
     };
-    console.log(e.target.files[0]);
   };
   // using custom form handler
   const {

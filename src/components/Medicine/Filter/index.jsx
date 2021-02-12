@@ -32,7 +32,6 @@ const Filter = ({ setProducts, setLoading, setError }) => {
   };
 
   const handleSearch = (e) => {
-    console.log(priceRange, category);
     let filters = {};
     if (priceRange !== "") {
       filters["priceRange"] = priceRange;

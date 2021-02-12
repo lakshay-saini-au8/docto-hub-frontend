@@ -52,7 +52,6 @@ const useFormHandler = (callback) => {
     if (noErrors) {
       callback();
     } else {
-      console.log("Error", errors);
     }
   };
 
@@ -67,8 +66,6 @@ const useFormHandler = (callback) => {
     if (noErrors) {
       callback();
     } else {
-      console.log("Inputs", inputs);
-      console.log("Errors", errors);
     }
   };
   const normalSubmit = (event) => {
@@ -89,8 +86,6 @@ const useFormHandler = (callback) => {
     if (noErrors) {
       callback();
     } else {
-      console.log("Inputs", inputs);
-      console.log("Errors", errors);
     }
   };
 
@@ -105,7 +100,6 @@ const useFormHandler = (callback) => {
     if (noErrors) {
       callback();
     } else {
-      console.log("Errors", errors);
     }
   };
 
@@ -120,7 +114,6 @@ const useFormHandler = (callback) => {
     if (noErrors) {
       callback();
     } else {
-      console.log("Errors", errors);
     }
   };
 

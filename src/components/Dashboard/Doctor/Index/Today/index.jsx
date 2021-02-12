@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Table, Image, Badge, Spinner } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Table, Badge, Spinner } from "react-bootstrap";
 import { useUserInfo } from "../../../../../customHooks";
 import { getAllBooking, updateBookingStatus } from "../../../../../utils/api";
 import ErrorMessage from "../../../../Reusable/ErrorMessage";
@@ -87,17 +86,15 @@ const Today = () => {
                 {bookings.map((item) => {
                   return (
                     <tr className="table-row " key={item._id}>
-                      <LinkContainer to="/patient/profile/item.user._id">
-                        <td className="appointments-doctor ">
-                          <div className="m-0 pl-0 align-middle d-flex align-items-center ">
-                            <div>
-                              <p className="mb-0 appointments-doctor-name font-weight-bold">
-                                {item.bookingDetails.firstname}
-                              </p>
-                            </div>
+                      <td className="appointments-doctor ">
+                        <div className="m-0 pl-0 align-middle d-flex align-items-center ">
+                          <div>
+                            <p className="mb-0 appointments-doctor-name font-weight-bold">
+                              {item.bookingDetails.firstname}
+                            </p>
                           </div>
-                        </td>
-                      </LinkContainer>
+                        </div>
+                      </td>
 
                       <td className="align-middle">
                         <p className="m-0">
@@ -122,7 +119,7 @@ const Today = () => {
                         <p>
                           {item.paymentDetails.payment_method === "payonspot"
                             ? "Pay On Spot"
-                            : "Paytm"}
+                            : "PayPal"}
                         </p>
                       </td>
 

@@ -17,7 +17,6 @@ const Appointments = () => {
       getAllBooking(userInfo.token, { mine: "mybooking" }).then((res) => {
         const { bookings: bookingData, message } = res;
         if (bookingData) {
-          console.log(bookingData);
           setBookings(bookingData);
         }
         if (message) {

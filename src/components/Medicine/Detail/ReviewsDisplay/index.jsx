@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Col, Button } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import Rating from "../../../Reusable/Rating";
 import { ratingText } from "../utils";
 const ReviewsDisplay = ({ reviews }) => {
-  const [start, setStart] = useState(0);
-  const moreReviews = () => {
-    if (start + 3 < reviews.length) {
-      setStart(start + 3);
-    } else {
-      setStart(0);
-    }
-  };
+  const [start] = useState(0);
+  // const moreReviews = () => {
+  //   if (start + 3 < reviews.length) {
+  //     setStart(start + 3);
+  //   } else {
+  //     setStart(0);
+  //   }
+  // };
   return (
     <Col sm={12}>
       <h6 className="bg-secondary w-100 text-white rounded py-1 px-2">
@@ -29,12 +29,6 @@ const ReviewsDisplay = ({ reviews }) => {
           </Col>
         );
       })}
-      <Button
-        className="m-auto font-weight-bold add-to-cart-detail"
-        onClick={moreReviews}
-      >
-        View More
-      </Button>
     </Col>
   );
 };
