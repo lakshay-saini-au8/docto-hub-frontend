@@ -41,6 +41,7 @@ const Today = () => {
       setBookingData();
     }
   }, [bookings, setBookingData]);
+  console.log("today", bookings);
   return (
     <Table responsive className="m-0 mt-3 appointments-table">
       <>
@@ -90,15 +91,8 @@ const Today = () => {
                         <td className="appointments-doctor ">
                           <div className="m-0 pl-0 align-middle d-flex align-items-center ">
                             <div>
-                              <Image
-                                src={item.user.profileImg[0].url}
-                                className="rounded-circle mr-1 p-0 d-inline-block"
-                                style={{ width: "40px", height: "40px" }}
-                              ></Image>
-                            </div>
-                            <div>
                               <p className="mb-0 appointments-doctor-name font-weight-bold">
-                                {item.user.firstname}
+                                {item.bookingDetails.firstname}
                               </p>
                             </div>
                           </div>
