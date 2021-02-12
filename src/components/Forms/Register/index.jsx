@@ -50,7 +50,6 @@ const RegisterForm = () => {
   // form submit handler
   const submit = () => {
     inputs["role"] = role;
-    console.log("Inputs", inputs);
     dispatch(
       registerAction(
         inputs.firstname,
@@ -75,7 +74,6 @@ const RegisterForm = () => {
   const changeRole = () => {
     dispatch({ type: USER_REGISTER_RESET });
   };
-  console.log(role);
   return (
     <Container className="mt-5 mb-5" fluid>
       <Row>

@@ -110,6 +110,7 @@ const BookingForm = () => {
   const handleBooking = async (details) => {
     inputs["paymentResult"] = details.payer;
     inputs["totalPrice"] = doctorProfile.price;
+    console.log(inputs);
     const { status, message } = await createBooking(
       userInfo.token,
       inputs,

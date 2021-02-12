@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import useFormHandler from "../../../components/Forms/Formhandler/useFormHandler";
-import {
-  Container,
-  Row,
-  Image,
-  Form,
-  Col,
-  Card,
-  ListGroup,
-  ListGroupItem,
-  Button,
-} from "react-bootstrap";
+import { Row, Form, Col, Button } from "react-bootstrap";
 // import { Link, useHistory, useParams } from "react-router-dom";
 const CheckOutform = () => {
   const submit = async () => {
@@ -18,13 +8,9 @@ const CheckOutform = () => {
   };
 
   // using custom form handler
-  const {
-    inputs,
-    handleInputChange,
-    placeOrder,
-    errors,
-    setInputs,
-  } = useFormHandler(submit);
+  const { inputs, handleInputChange, placeOrder, errors } = useFormHandler(
+    submit
+  );
 
   useEffect(() => {}, []);
 

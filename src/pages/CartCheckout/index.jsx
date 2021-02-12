@@ -4,7 +4,6 @@ import CartCheckoutForm from "../../components/CartCheckoutForm";
 import PageName from "../../components/Reusable/PageName";
 import selectPageName from "../../components/Reusable/PageName/pageNameSelect";
 const CartCheckout = ({ match }) => {
-  console.log(match);
   return (
     <Container fluid className="m-0 p-0" style={{ minHeight: "50vh" }}>
       <PageName

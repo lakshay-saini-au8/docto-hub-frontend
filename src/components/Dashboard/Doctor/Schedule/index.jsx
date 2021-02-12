@@ -51,7 +51,7 @@ const ScheduleTimings = ({ currentProfile, token, setCurrentProfile }) => {
   };
   // form submit handler
   const submit = async () => {
-    inputs["available"] = [onLeave, slots];
+    inputs["available"] = [{ onLeave: onLeave }, slots];
     delete inputs["__v"];
     delete inputs["_id"];
     const finalData = new FormData();
@@ -99,7 +99,7 @@ const ScheduleTimings = ({ currentProfile, token, setCurrentProfile }) => {
 
     if (currentProfile) {
       setSlots(currentProfile.available[1]);
-      setOnleave(currentProfile.available[0]);
+      setOnleave(currentProfile.available[0].onLeave);
     }
   }, [setInputs, currentProfile]);
   return (

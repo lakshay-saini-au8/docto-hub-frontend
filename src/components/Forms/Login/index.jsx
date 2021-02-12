@@ -30,7 +30,6 @@ const LoginForm = ({ location }) => {
   // form submit handler
   const submit = () => {
     if (forgotPassword) {
-      console.log(inputs, "Link For Forgot Password");
       clearForm();
     } else {
       dispatch(loginAction(inputs.email, inputs.password));
