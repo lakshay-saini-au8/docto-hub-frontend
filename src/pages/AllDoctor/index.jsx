@@ -9,15 +9,15 @@ import { getAllDoctor } from "../../utils/api";
 
 const AllDoctor = () => {
   const { search } = useLocation();
-  let q = {};
-  if (search) {
-    q["specialization"] = search.split("=")[1];
-  }
 
   const [doctors, setDoctors] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
+    let q = {};
+    if (search) {
+      q["specialization"] = search.split("=")[1];
+    }
     if (!doctors) {
       setLoading(true);
       getAllDoctor(q).then((res) => {
@@ -31,7 +31,7 @@ const AllDoctor = () => {
         setLoading(false);
       });
     }
-  }, [doctors]);
+  }, [doctors, search]);
   return (
     <div>
       <PageName pageName={selectPageName("doctors")} />
